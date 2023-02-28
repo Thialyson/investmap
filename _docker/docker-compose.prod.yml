@@ -1,0 +1,39 @@
+# TODO: AINDA SEM USO
+version: '3.5'
+
+services:
+  sample-api:
+    image: node:14-alpine
+    container_name: 'sample-api'
+    command: >
+      sh -c "
+        echo '--------- INSTALL NODE MODULES' &&
+        npm install &&
+        echo '--------- START API SERVER FOR PRODUCTION' &&
+        npm run production
+        "
+    working_dir: /home/node/app
+    ports:
+      - 3000:3000
+    volumes:
+      - ../sample-api:/home/node/app
+    # TODO: IMPLEMENTAR O HEALTH CHECK PARA ESSA SIMULAÇÃO
+    # healthcheck:
+    #   test: "mysqladmin ping -h127.0.0.1 -uroot -psecret --silent"
+    #   interval: 10s
+
+  sample-ui:
+    image: node:14-alpine
+    container_name: 'sample-ui'
+    command: >
+      sh -c "
+        echo '--------- INSTALL NODE MODULES' &&
+        npm install &&
+        echo '--------- START UI SERVER FOR PRODUCTION' &&
+        npm run build
+        "
+    working_dir: /usr/src/app
+    ports:
+      - 8000:8000
+    volumes:
+      - ../sample-ui:/usr/src/app/

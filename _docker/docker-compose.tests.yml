@@ -1,0 +1,33 @@
+version: '3.5'
+
+services:
+  tests-ui:
+    image: node:14-alpine
+    container_name: 'tests'
+    command: >
+      sh -c "
+        echo '--------- INSTALL DEPENDENCIES'
+        npm install --prefix ./sample-api
+        npm install --prefix ./sample-ui
+        npm install --prefix ./tests-api
+        npm install --prefix ./tests-ui
+
+        echo '--------- CLONE PROD DB TO TEST DB'
+        npm run test_db_clone --prefix ./sample-api
+
+        echo '--------- START SERVER IN TEST MODE'
+        npm run test_up --prefix ./sample-api
+
+        echo '--------- START AUTOMATED TESTS FOR API'
+        npm run test --prefix ./tests-api
+
+        echo '--------- FINISH SERVER IN DEVELOPMENT MODE'
+        npm run test_down --prefix ./sample-api
+
+        echo '--------- CLEAR TEST DB'
+        npm run test_db_clear --prefix ./sample-api
+        "
+    working_dir: /usr/src/app
+    volumes:
+      - ../sample-api:/usr/src/app/sample-api
+      - ../tests-api:/usr/src/app/tests-api
