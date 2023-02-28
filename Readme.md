@@ -4,19 +4,20 @@
 
 # Project Investmap
 
-Aplicação para acompanhamento de investimento.
+Investment monitoring application.
 
 
 ## Acknowledgements
 
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+ - [Git Flow](https://www.alura.com.br/artigos/git-flow-o-que-e-como-quando-utilizar?gclid=Cj0KCQiA6fafBhC1ARIsAIJjL8kOGYJ2i-RkYPdjcV2q4ELQH2_-9vai5EEwInqs5ZpdjupGWljF2OcaAhYZEALw_wcB)
+ - [Convetional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+ - [How to write a Good readme](https://readme.so/editor)
 
 
 ## Authors
 
 - [@Thialyson](https://www.github.com/Thialyson)
+- [@WallisonMartins](https://www.github.com/WallisonMartins)
 - [@evertonlopesc](https://www.github.com/evertonlopesc)
 
 
@@ -34,36 +35,21 @@ Aplicação para acompanhamento de investimento.
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/Thialyson/investmap.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd investmap
 ```
 
 Install dependencies
 
-```bash
-  npm install
-```
+  - You need to have Docker and Docker Compose installed
 
 Start the server
 
 ```bash
-  npm run start
+  docker compose -f _docker/docker-compose.dev.yml -p investmap up -d
 ```
-
-
-## Related
-
-Here are some related projects
-
-[Awesome README](https://github.com/matiassingers/awesome-readme)
-
-
-## Optimizations
-
-What optimizations did you make in your code? E.g. refactors, performance improvements, accessibility
-
