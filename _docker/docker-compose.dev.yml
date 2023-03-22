@@ -43,3 +43,12 @@ services:
     working_dir: /usr/src/app
     ports:
       - "8000:3000"
+
+  pgadmin:
+    container_name: "pgadmin"
+    image: fenglc/pgadmin4
+    # environment:
+    #   DEFAULT_USER: "admin@admin.com.br"
+    #   DEFAULT_PASSWORD: "123456"
+    ports:
+      - "8080:5050"

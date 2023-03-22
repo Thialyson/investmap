@@ -1,2 +1,5 @@
 .env
 investmap_back/.env
+investmap_back/tmp
+investmap_back/log
+investmap_back/config/master.key
